@@ -3,6 +3,13 @@ from tensorflow.keras.applications.vgg19 import VGG19, preprocess_input
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
+import os
+
+# Suppress TensorFlow logging
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
+os.environ['TF_CPP_MIN_VLOG_LEVEL'] = '2'
+tf.get_logger().setLevel('ERROR')
 
 class FeatureExtractor:
     def __init__(self):
@@ -30,8 +37,8 @@ class FeatureExtractor:
         # Preprocess image
         img = self.preprocess(img_path)
         
-        # Extract features
-        features = self.model.predict(img, verbose=0)
+        # Extract features with batch_size=1 to avoid Keras dataset issues
+        features = self.model.predict(img, verbose=0, batch_size=1)
         
         # Flatten and normalize (L2 normalization)
         features = features.flatten()

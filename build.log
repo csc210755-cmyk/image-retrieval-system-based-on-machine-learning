@@ -1,0 +1,16 @@
+nohup: ignoring input
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1767906379.646226   41879 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1767906379.650619   41879 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+Processing images... 10/119
+Processing images... 20/119
+Processing images... 30/119
+Processing images... 40/119
+Processing images... 50/119
+Processing images... 60/119
+Processing images... 70/119
+Processing images... 80/119
+Processing images... 90/119
+Processing images... 100/119
+Processing images... 110/119
+Index built with 119 images.
