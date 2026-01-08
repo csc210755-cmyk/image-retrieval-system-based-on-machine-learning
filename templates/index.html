@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBIR Image Retrieval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔍 image retrieval system</h1>
+            <p>Upload an image to find similar images from the database</p>
+        </header>
+        
+        <main class="main-content">
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <h3>Drag & Drop or Click to Upload</h3>
+                    <p>Supported formats: JPG, JPEG, PNG</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <button class="btn" onclick="document.getElementById('imageInput').click()">
+                        Choose Image
+                    </button>
+                </div>
+                
+                <div class="preview" id="previewContainer" style="display: none;">
+                    <h3>Query Image:</h3>
+                    <img id="previewImage" src="" alt="Preview">
+                    <button class="btn search-btn" onclick="searchSimilar()">🔍 Search Similar</button>
+                </div>
+            </section>
+            
+            <section class="results-section">
+                <h2>Similar Images</h2>
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will be displayed here -->
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>Retrieval system using VGG19, FAISS and mobile friendly</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
